@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>메인 홈페이지</title>
+    <link rel="stylesheet" href="../static/css/index.css" type="text/css">
+
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+</head>
+<style>
+
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.main-title {
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    padding-top: 16px;
+}
+
+.main-title > h1 {
+    font-family: 'TheJamsil5Bold';
+    font-size: 50px;
+}
+
+.main-title > img {
+    width: 80px;
+    height: 80px;
+    margin-right: 16px;
+}
+
+.main-menu {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    background-color: #C8D7FF;
+    line-height: 60px;
+}
+
+.main-horizontal {
+    padding-left: 16px;
+    display: flex;
+}
+
+.main-horizontal > .main-page > a {
+    font-size: 20px;
+    display-block: none;
+    font-family: 'Happiness-Sans-Title';
+    margin-left: 6px;
+}
+
+.main-horizontal > .main-page > img {
+    margin-left: 40px;
+    text-align: center;
+}
+
+</style>
+<body>
+<div>
+    <div class="main-title">
+        <img src="/static/img/airplane.png">
+        <h1>Yo! 어서와! 너만의 블로그</h1>
+    </div>
+
+    <div class="main-menu">
+        <nav class="main-horizontal">
+            <div class="main-page">
+                <img src="/static/img/home.png" width="30px" height="30px">
+                <a href="">메인 페이지</a>
+
+                <img src="/static/img/exercise.png" width="30px" height="30px">
+                <a href="exercise/list">건강</a>
+
+                <img src="/static/img/food.png" width="30px" height="30px">
+                <a href="board/food/list">식단</a>
+
+                <img src="/static/img/travel.png" width="30px" height="30px">
+                <a href="board/travel/list">여행</a>
+
+                <a href="#">로그인</a>
+            </div>
+        </nav>
+    </div>
+</div>
+</body>
+</html>

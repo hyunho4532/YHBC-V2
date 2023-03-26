@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form th:action="@{/board/exercise/update/success/{id}(id = ${exercise.id})}" method="post">
+        <div class="form-group">
+            <label for="user-name">이름</label>
+            <input type="text" class="form-control" id="user-name" name="name" th:value="${exercise.name}" placeholder="이름을 입력하세요">
+        </div>
+
+        <div class="form-group">
+            <label for="user-exercise-information">운동 내역</label>
+            <input type="text" class="form-control" id="user-exercise-information" name="title" th:value="${exercise.title}" placeholder="운동 내역을 입력하세요.">
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-control" id="user-exercise-introduce" name="content" th:text="${exercise.content}" rows="3"></textarea>
+        </div>
+
+        <div class="find-btn">
+            <button type="submit" class="btn btn-primary" id="exercise-board-insert">입력</button>
+            <button type="button" class="btn btn-primary" id="exercise-board-cancel">취소</button>
+        </div>
+    </form>
+</body>
+</html>

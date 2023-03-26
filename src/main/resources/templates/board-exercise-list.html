@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>메인 홈페이지</title>
+
+  <link rel="stylesheet" href="../static/css/index.css" type="text/css">
+
+  <!-- 합쳐지고 최소화된 최신 CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+  <!-- 부가적인 테마 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+  <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<style>
+
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.main-title {
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    padding-top: 16px;
+}
+
+.main-title > h1 {
+    font-family: 'TheJamsil5Bold';
+    font-size: 50px;
+}
+
+.main-title > img {
+    width: 80px;
+    height: 80px;
+    margin-right: 16px;
+}
+
+.main-menu {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    background-color: #C8D7FF;
+    line-height: 60px;
+}
+
+.main-horizontal {
+    padding-left: 16px;
+    display: flex;
+}
+
+.main-horizontal > .main-page > a {
+    font-size: 20px;
+    display-block: none;
+    font-family: 'Happiness-Sans-Title';
+    margin-left: 6px;
+}
+
+.main-horizontal > .main-page > img {
+    margin-left: 40px;
+    text-align: center;
+}
+
+.table {
+  width: 600px;
+  line-height: 250px;
+  margin: 30px;
+}
+
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+}
+
+.modal-window {
+    background: white;
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 800px;
+    height: 700px;
+    position: relative;
+    padding: 10px;
+}
+
+.modal-layout > h3 {
+  font-family: 'GangwonEduPowerExtraBoldA';
+  font-size: 35px;
+}
+
+#user-exercise-introduce {
+  width: 100%;
+  height: 300px;
+}
+
+.find-btn {
+  text-align: center;
+}
+
+.btn-primary {
+  width: 320px;
+  height: 45px;
+  display: inline-block;
+}
+
+.table > thead > tr > th {
+    font-size: 24px;
+    font-family: 'Happiness-Sans-Title';
+}
+
+.table > tbody > tr > td {
+    font-size: 18px;
+    font-family: 'ONE-Mobile-POP';
+}
+
+</style>
+<script>
+$(document).ready(function() {
+  $('.button-modal-click').click(function() {
+    $('.modal-overlay').css('display', 'flex');
+  })
+
+  $('#exercise-board-cancel').click(function() {
+    $('.modal-overlay').css('display', 'none');
+  })
+})
+</script>
+<body>
+<div>
+  <div class="main-title">
+    <img src="/static/img/airplane.png">
+    <h1>Yo! 어서와! 건강 블로그~</h1>
+  </div>
+
+  <div class="main-menu">
+    <nav class="main-horizontal">
+      <div class="main-page">
+        <img src="/static/img/home.png" width="30px" height="30px">
+        <a href="#">메인 페이지</a>
+
+        <img src="/static/img/exercise.png" width="30px" height="30px">
+        <a href="board/exercise/list">건강</a>
+
+        <img src="/static/img/exercise-board-write.png" width="30px" height="30px">
+        <button class="button-modal-click" style="width: 150px; line-height: 40px; margin-left: 16px">글쓰기</button>
+      </div>
+    </nav>
+  </div>
+
+  <div class="modal-overlay">
+      <div class="modal-window">
+          <div class="modal-layout">
+              <h3 style="text-align: center;">오늘 운동을 하셨나요?</h3>
+              <form action="/board/exercise/write" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                      <label for="user-name">이름</label>
+                      <input type="text" class="form-control" id="user-name" name="name" placeholder="이름을 입력하세요">
+                  </div>
+
+                  <div class="form-group">
+                      <label for="user-exercise-information">운동 내역</label>
+                      <input type="text" class="form-control" id="user-exercise-information" name="title" placeholder="운동 내역을 입력하세요.">
+                  </div>
+
+                  <div class="form-group">
+                    <textarea class="form-control" id="user-exercise-introduce" name="content" rows="3"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                      <input type="file" name="uploadFile">
+                  </div>
+
+                <div class="find-btn">
+                  <button type="submit" class="btn btn-primary" id="exercise-board-insert">입력</button>
+                  <button type="button" class="btn btn-primary" id="exercise-board-cancel">취소</button>
+                </div>
+              </form>
+          </div>
+      </div>
+  </div>
+
+  <div>
+    <table class="table" style="width: 2000px; height: 300px; border-collapse: separate; border-spacing: 0 20px;">
+        <thead>
+            <tr>
+                <th>
+                    아이디
+                    <a href="/board/exercise/list">↑</a>
+                    <a href="/board/exercise/asc">↓</a>
+                </th>
+                <th>이름</th>
+                <th>제목</th>
+                <th>소감</th>
+                <th>기능</th>
+                <th>이미지</th>
+            </tr>
+        </thead>
+        <tbody style="margin-top: 128px;" >
+            <tr th:each="board: ${list}">
+                <td>
+                    <a th:text="${board.id}" th:href="@{/board/exercise/delete(id=${board.id})}">순번</a>
+                </td>
+                <td th:text="${board.name}">이름</td>
+                <td th:text="${board.title}">제목</td>
+                <td th:text="${board.content}">소감</td>
+                <td>
+                    <a th:href="@{/board/exercise/update(id=${board.id})}">수정</a>
+                </td>
+                <td>
+                    <img th:src="@{/static} + ${board.filepath}" style="width: 100px; height: 100px;">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="text-align: center; font-size: 24px;">
+        <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+            <div style="padding-left: 15px; display: inline-block">
+                <a th:if="${page != nowPage}" th:href="@{/board/exercise/list(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a>
+                <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+            </div>
+        </th:block>
+
+        <form th:action="@{/board/exercise/list}" method="get">
+            <input type="text" name="searchKeyword">
+            <button type="submit" class="btn btn-primary" style="width: 100px; height: 40px;">검색</button>
+        </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
